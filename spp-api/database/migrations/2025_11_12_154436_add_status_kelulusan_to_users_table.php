@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('status_kelulusan', ['aktif', 'lulus', 'pindah', 'keluar'])
+                  ->default('aktif')
+                  ->after('jenis_kelamin')
+                  ->comment('Status siswa: aktif/lulus/pindah/keluar');
+            
+            $table->year('tahun_lulus')->nullable()->after('status_kelulusan');
+            
+            $table->index('status_kelulusan');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropIndex(['status_kelulusan']);
+            $table->dropColumn(['status_kelulusan', 'tahun_lulus']);
+        });
+    }
+};

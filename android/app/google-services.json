@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "462662254729",
+    "project_id": "spp-ticket-dc623",
+    "storage_bucket": "spp-ticket-dc623.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462662254729:android:d378d7e705b4c601180658",
+        "android_client_info": {
+          "package_name": "com.example.tugas_sekolah_new"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462662254729-i38ho416nm3bsilajsnc9k31k3g0sajj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tugas_sekolah_new",
+            "certificate_hash": "358c2cc47327090e649a09865bc100049d60ad22"
+          }
+        },
+        {
+          "client_id": "462662254729-4278i32vvtvsgimqlqaf707cemdvt713.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR4v307EE8uM6QYbptjvX03pVBQtcrXNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462662254729-4278i32vvtvsgimqlqaf707cemdvt713.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
