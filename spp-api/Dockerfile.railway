@@ -27,14 +27,20 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
+# Copy composer files first
+COPY composer.json composer.lock ./
+
+# Install dependencies (without scripts to avoid errors)
+RUN composer install --no-interaction --no-scripts --no-autoloader --prefer-dist
+
 # Copy application files
 COPY . .
 
 # Copy CA certificate for Aiven
 COPY ca-certificate.crt /var/www/html/ca-certificate.crt
 
-# Install dependencies
-RUN composer install --no-interaction --optimize-autoloader --no-dev
+# Complete composer installation
+RUN composer dump-autoload --optimize --no-dev
 
 # Create required directories
 RUN mkdir -p storage/framework/cache \
