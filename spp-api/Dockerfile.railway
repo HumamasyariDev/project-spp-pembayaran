@@ -30,8 +30,8 @@ WORKDIR /var/www/html
 # Copy composer files first
 COPY composer.json composer.lock ./
 
-# Install dependencies (without scripts to avoid errors)
-RUN composer install --no-interaction --no-scripts --no-autoloader --prefer-dist
+# Install dependencies
+RUN composer install --no-interaction --no-dev --prefer-dist --ignore-platform-reqs
 
 # Copy application files
 COPY . .
@@ -39,8 +39,8 @@ COPY . .
 # Copy CA certificate for Aiven
 COPY ca-certificate.crt /var/www/html/ca-certificate.crt
 
-# Complete composer installation
-RUN composer dump-autoload --optimize --no-dev
+# Optimize autoloader
+RUN composer dump-autoload --optimize
 
 # Create required directories
 RUN mkdir -p storage/framework/cache \
